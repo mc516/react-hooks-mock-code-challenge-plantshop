@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PlantCard from "./PlantCard";
 
-function PlantList(  {setPlantList, plantList }) {
+function PlantList(  {setPlantList, plantList, filterInput }) {
 
   useEffect(() => {
     fetch("http://localhost:6001/plants")
@@ -9,14 +9,20 @@ function PlantList(  {setPlantList, plantList }) {
     .then(data => setPlantList(data))
   }, [])
 
-  const plantsToDisplay = plantList.filter (plant => {return true})
+  const plantsToDisplay = plantList.filter (plant => {
+    if(filterInput !== "") {
+      return plant.name.toLowerCase().includes(filterInput.toLowerCase())
+    } else {
+      return true
+    }
+   })
 
   return (
     <ul className="cards">
       { plantsToDisplay.map(plant => { return <PlantCard key={plant.name}plantData={plant}/>}) }
-      {/* render PlantCards components in here */}
     </ul>
   );
 }
 
 export default PlantList;
+
