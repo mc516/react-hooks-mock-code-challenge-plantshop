@@ -9,10 +9,14 @@ function PlantPage() {
   function handleSetPlantList(plants) {
     setPlantList(plants)
   }
+
+  function addNewPlant(newPlant) {
+    setPlantList([...plantList,newPlant])
+  }
   
   return (
     <main>
-      <NewPlantForm />
+      <NewPlantForm onAddNewPlant={addNewPlant}/>
       <Search />
       <PlantList setPlantList={handleSetPlantList} plantList={plantList}/>
     </main>

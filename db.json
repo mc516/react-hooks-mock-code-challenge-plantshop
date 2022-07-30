@@ -41,6 +41,12 @@
       "name": "Fiddle Leaf Fig",
       "image": "./images/fiddle-leaf-fig.jpg",
       "price": 55
+    },
+    {
+      "name": "Moss",
+      "image": "https://cdn.britannica.com/07/140407-050-30CD8CA1/Broom-moss.jpg",
+      "price": 10,
+      "id": 8
     }
   ]
 }
